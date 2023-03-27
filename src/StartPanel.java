@@ -9,13 +9,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+
 /**
  * The start screen for the CelebrityGame app.
  * 
  * @author cody.henrichsen
  * @version 2.1 18/09/2018 Refactored away validation to controller.
  */
-public class StartPanel extends JPanel {
+public class StartPanel extends JPanel implements Actionlistener {
   /**
    * Reference to the Game to call methods.
    */
@@ -98,7 +99,33 @@ public class StartPanel extends JPanel {
    */
   public StartPanel(CelebrityGame controllerRef) {
     super();
+    controller = controllerRef;
+    panelLayout = new SpringLayout();
+    typeGroup = new ButtonGroup();
+    celebrityRadio = new JRadioButton("Celebrity");
+    celebrityClue = "Enter the clue: ";
+    clueLabel = new JLabel(celebrityClue);
 
+    answerField = new JTextField("Type celebrity name ");
+    clueField = new JTextField("Enter celebrity clue ");
+    addCelebrityButton = new JButton("Add current celebrity");
+    startButton = new JButton("Start Celebrity game");
+    celebrityCount = 0;
+    countLabelText = "Current Celebrity Count: " + celebrityCount;
+    celebrityCountLabel = new JLabel(countLabelText);
+
+    // these setup methods are defined below
+    setupPanel();
+    setupLayout();
+    setupListeners();
+
+  }
+
+  //interface method: gets called whenever a component with an
+  // ActionListener attached get clicked
+  public void actionPerformed(ActionEvent ae) {
+    Object source = ae.getSource();
+    JButton button = (JButton) source;
   }
   
   /**
@@ -106,6 +133,18 @@ public class StartPanel extends JPanel {
    * panelLayout, as the layout manager.
    */
   private void setupPanel() {
+    setLayout(panelLayout);
+    add(clueLabel);
+    add(celebrityRadio);
+    add(answerField);
+    add(clueField);
+    add(startButton);
+    add(celebrityCountLabel);
+    add(addCelebrityButton);
+
+    celebrityRadio.setSelected(true);
+    startButton.setEnabled(false);
+    typeGroup.add(celebrityRadio);
 
   }
   
@@ -115,7 +154,7 @@ public class StartPanel extends JPanel {
    * maintainable.
    */
   private void setupLayout() {
-    panelLayout.putConstraint(SpringLayout.WEST, clueLabel, 0, SpringLayout.WEST, celebrityRadio);
+    panelLayout.putConstraint(SpringLayout.NORTH, clueLabel, 0, SpringLayout.WEST, celebrityRadio);
     panelLayout.putConstraint(SpringLayout.NORTH, celebrityRadio, 15, SpringLayout.NORTH, this);
     panelLayout.putConstraint(SpringLayout.WEST, celebrityRadio, 15, SpringLayout.WEST, this);
     panelLayout.putConstraint(SpringLayout.EAST, addCelebrityButton, 0, SpringLayout.EAST, startButton);
@@ -144,7 +183,7 @@ public class StartPanel extends JPanel {
    * Used to link all Listeners to the associated GUI components.
    */
   private void setupListeners() {
-    
+    addCelebrityButton.addActionListener(this);
   }
 
 
