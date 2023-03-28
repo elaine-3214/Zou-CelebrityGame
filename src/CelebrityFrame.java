@@ -68,7 +68,6 @@ public class CelebrityFrame extends JFrame {
 		setVisible(true);
 
 	}
-	
 	/**
 	 * Swaps the screen between the existing panels based on the String parameter.
 	 * @param screen The name of the screen to open.

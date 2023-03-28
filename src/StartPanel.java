@@ -224,7 +224,6 @@ public class StartPanel extends JPanel implements ActionListener {
     if (answerText.length() > 4) {
       validAnswer = controller.validateCelebrity(answerText);
     }
-
     return (validClue && validAnswer);
   }
 

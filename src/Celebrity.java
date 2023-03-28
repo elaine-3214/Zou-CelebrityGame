@@ -13,7 +13,6 @@ public class Celebrity {
 	 * The answer (the name of the celebrity)
 	 */
 	private String answer;
-
 	/**
 	 * Creates a Celebrity instance with the supplied answer and clue
 	 * @param answer  the answer (name of celebrity)

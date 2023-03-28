@@ -116,7 +116,6 @@ public class CelebrityPanel extends JPanel implements ActionListener {
     setupListeners();
 
   }
-
   public void actionPerformed(ActionEvent ae) {
 
   }

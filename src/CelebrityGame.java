@@ -86,7 +86,6 @@ public class CelebrityGame {
 		String temp = clue.trim();
 		return temp.length() >= 10;
 	}
-
 	/**
 	 * Accessor method for the current size of the list of celebrities
 	 * 
