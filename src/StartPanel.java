@@ -16,7 +16,7 @@ import javax.swing.SpringLayout;
  * @author cody.henrichsen
  * @version 2.1 18/09/2018 Refactored away validation to controller.
  */
-public class StartPanel extends JPanel implements Actionlistener {
+public class StartPanel extends JPanel implements ActionListener {
   /**
    * Reference to the Game to call methods.
    */
@@ -124,8 +124,21 @@ public class StartPanel extends JPanel implements Actionlistener {
   //interface method: gets called whenever a component with an
   // ActionListener attached get clicked
   public void actionPerformed(ActionEvent ae) {
-    Object source = ae.getSource();
-    JButton button = (JButton) source;
+    // when "add celebrity" button gets clicked:
+    answerField.setBackground(Color.WHITE);
+    clueField.setBackground(Color.WHITE);
+    if (validate(answerField.getText(), clueField.getText())) {
+      addToGame();
+    } else {
+      invalidInput();
+    }
+    celebrityCount = controller.getCelebrityGameSize();
+    celebrityCountLabel.setText(countLabelText + celebrityCount);
+
+  }
+
+  private void setUpListeners() {
+    addCelebrityButton.addActionListener(this);
   }
   
   /**
