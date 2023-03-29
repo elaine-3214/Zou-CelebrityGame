@@ -110,6 +110,7 @@ public class CelebrityPanel extends JPanel implements ActionListener {
     success = "You guessed correctly!!! \nNext Celebrity clue is: ";
     tryAgain = "You have chosen poorly, try again!\nThe clue is: ";
     seconds = 60;
+    countdownTimer = new Timer(1000, null);
 
     setupPanel();
     setupLayout();
@@ -118,10 +119,14 @@ public class CelebrityPanel extends JPanel implements ActionListener {
   }
   public void actionPerformed(ActionEvent ae) {
     Object source = ae.getSource();
-    JButton button = (JButton) source;
-    String txt = button.getText().trim();
-    if (txt.equals("Submit guess")) {
-      updateScreen();
+    if (source instanceof JButton) {
+      JButton button = (JButton) source;
+      String txt = button.getText().trim();
+      if (txt.equals("Submit guess")) {
+        updateScreen();
+      }
+    } else if (source instanceof Timer) {
+      timerFires();
     }
   }
 
@@ -187,6 +192,8 @@ public class CelebrityPanel extends JPanel implements ActionListener {
    */
   private void setupListeners() {
     guessButton.addActionListener(this);
+    countdownTimer.addActionListener(this);
+    countdownTimer.start();
   }
 
   /**
@@ -195,6 +202,16 @@ public class CelebrityPanel extends JPanel implements ActionListener {
    * the end.
    */
   private void timerFires() {
+    seconds --;
+    dynamicTimerLabel.setText("" + seconds);
+    if (seconds == 0) {
+      countdownTimer.stop();
+      staticTimerLabel.setText("Time's up! You Lose");
+      dynamicTimerLabel.setText("");
+      guessButton.setEnabled(false);
+      guessField.setEnabled(false);
+    }
+
 
   }
 
@@ -206,6 +223,9 @@ public class CelebrityPanel extends JPanel implements ActionListener {
    */
   public void addClue(String clue) {
     clueArea.append("The clue is: " + clue);
+    seconds = 60;
+    dynamicTimerLabel.setText("" + seconds);
+    countdownTimer.restart();
   }
 
   /**
@@ -227,6 +247,12 @@ public class CelebrityPanel extends JPanel implements ActionListener {
       clueArea.append("\nNo more celebrities to guess.");
       guessButton.setEnabled(false);
       guessField.setEnabled(false);
+      countdownTimer.stop();
+      staticTimerLabel.setText("You Win!");
+      dynamicTimerLabel.setText("");
+      guessButton.setEnabled(false);
+      guessField.setEnabled(false);
+
+      }
     }
   }
-}
