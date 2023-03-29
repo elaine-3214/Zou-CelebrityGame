@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e86bf40a-d04b-45d6-a434-a4876afcbb0e" name="Changes" comment="">
+    <list default="true" id="e86bf40a-d04b-45d6-a434-a4876afcbb0e" name="Changes" comment="part1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Celebrity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Celebrity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CelebrityFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CelebrityFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CelebrityGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CelebrityGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CelebrityPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CelebrityPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CelebrityRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CelebrityRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +62,14 @@
       <option name="presentableId" value="Default" />
       <updated>1679930017665</updated>
     </task>
+    <task id="LOCAL-00001" summary="part1">
+      <created>1679965393060</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679965393061</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -68,5 +82,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="part1" />
+    <option name="LAST_COMMIT_MESSAGE" value="part1" />
   </component>
 </project>
