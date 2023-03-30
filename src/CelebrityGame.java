@@ -11,6 +11,7 @@ public class CelebrityGame {
 	 * A reference to a Celebrity or subclass instance.
 	 */
 	private Celebrity gameCelebrity;
+
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
@@ -62,6 +63,10 @@ public class CelebrityGame {
 		if (celebGameList != null) {
 			gameCelebrity = celebGameList.get(0);
 			gameWindow.replaceScreen("GAME");
+		} else {
+			celebGameList = new ArrayList<Celebrity>();
+			gameCelebrity = null;
+			gameWindow.replaceScreen("START");
 		}
 	}
 
@@ -114,6 +119,9 @@ public class CelebrityGame {
 	 * @return The String clue from the current celebrity.
 	 */
 	public String sendClue() {
-		return gameCelebrity.getClue(); // stub
+		return gameCelebrity.getClue();
+	}
+	public void setCelebGameList(ArrayList n) {
+		celebGameList = n;
 	}
 }
